@@ -1,29 +1,53 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="wrapper d-flex flex-column justify-content-center align-items-center w-100 h-100 py-3">
+      <nav class="navigation wrapper__navigation">
+        <ul class="navigation__list">
+          <li
+            v-for="page in pages"
+            :key="page.name"
+            class="navigation__item"
+            :class="{'navigation__item_active': $route.name === page.path}"
+          >
+            <router-link
+              :to="page.path"
+              class="navigation__link"
+            >
+              {{ page.name }}
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="wrapper__card card shadow">
+        <div class="card__content">
+          <router-view />
+        </div>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script lang="ts">
+  import {Component, Vue} from 'vue-property-decorator';
+
+  @Component
+  export default class extends Vue {
+    pages: Array<{name: string, path: string}> = [
+      {
+        name: 'Activities',
+        path: 'activities'
+      },
+      {
+        name: 'My List',
+        path: 'list'
+      }
+    ];
   }
-}
+</script>
+
+<style lang="scss">
+  @import '~bootstrap/scss/bootstrap';
+  @import '~bootstrap-vue/src/index.scss';
+  @import './styles/style';
 </style>

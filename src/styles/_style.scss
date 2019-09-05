@@ -1,0 +1,57 @@
+.wrapper {
+  min-height: 100vh;
+
+  &__card,
+  &__navigation {
+    max-width: 960px;
+    width: 100%;
+  }
+}
+
+.navigation {
+  &__list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    background: #fff;
+    margin-bottom: -1px;
+    min-width: 150px;
+    text-align: center;
+
+    &_active {
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-bottom-color: #fff;
+      border-radius: .25rem .25rem 0 0;
+      z-index: 2;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 1.25rem;
+    text-decoration: none;
+    width: 100%;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.card {
+  border-radius: 0 .25rem .25rem .25rem;
+  height: 500px;
+
+  &__content {
+    height: 100%;
+    padding: 1.25rem;
+  }
+
+  &__title {
+    margin-bottom: 1.25rem;
+  }
+}
