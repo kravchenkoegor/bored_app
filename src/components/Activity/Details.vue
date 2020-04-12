@@ -112,6 +112,6 @@
   .checkbox {
     left: 60px;
     position: absolute;
-    top: 0;
+    top: -32px;
   }
 </style>
